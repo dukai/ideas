@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ideas</title>
+</head>
+<body>
+<h1>HOME PAGE</h1>
+
+<a href="about.html" data-pjax="" class="pjax">About</a>
+
+<script src="resource/js/jquery-1.9.1.min.js"></script>
+<script>
+$('a.pjax').click(function(e){
+	e.preventDefault();
+	history.pushState(null, '', this.href);
+	
+	$.get(this.href, function(r){
+		alert(r);
+	});
+});
+</script>
+</body>
+</html>
