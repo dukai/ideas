@@ -1,3 +1,10 @@
+<?
+if(!empty($_SERVER['HTTP_AJAXTYPE'])){
+?>
+
+<div>About content</div>
+
+<?}else{?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,12 +12,13 @@
 <title>ideas</title>
 </head>
 <body>
-<h1>HOME PAGE</h1>
+<h1>About</h1>
 <div class="navbar">
-<a href="index.html" data-pjax="#content" class="pjax">Home</a> | <a href="about.php" data-pjax="#content" class="pjax">About</a>
+<a href="index.html" data-pjax="#content" class="pjax">Home</a> | <a href="about.html" data-pjax="#content" class="pjax">About</a>
 </div>
-
-<div id="content"></div>
+<div id="content">
+	<div>About content</div>
+</div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script>
 window.addEventListener("popstate", function(e) {
@@ -34,3 +42,5 @@ $('a.pjax').click(function(e){
 </script>
 </body>
 </html>
+
+<?}?>
