@@ -4,16 +4,15 @@
 var historyStack = {};
 var historyCurrentPointer = 0;
 window.addEventListener("popstate", function(e) {
-	var state = e.state;
-	if(!state){
-		state = {
-			href: location.href
-		}
+	if(historyStack[location.href]){
+		$(historyStack[location.href].id).html(historyStack[location.href].html);
+		return;
 	}
+	var state = e.state;
 	
-	if(historyStack[state.href]){
-		$(historyStack[state.href].id).html(historyStack[state.href].html);
-	}else{
+	if(!state){
+		return;
+	}
 	
 	$.ajax({
 		headers : {
@@ -25,16 +24,13 @@ window.addEventListener("popstate", function(e) {
 		}
 	});
 	
-	}
 });
 $('a.pjax').click(function(e){
 	e.preventDefault();
 	var contentId = this.getAttribute('data-pjax');
 	historyCurrentPointer ++;
 	historyStack[location.href] = {
-	
 		html: $(contentId).html(),
-		
 		id: contentId
 	};
 	history.pushState({href: this.href, 'data-pjax': contentId}, 'Another', this.href);
