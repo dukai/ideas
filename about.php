@@ -1,46 +1,15 @@
 <?
-if(!empty($_SERVER['HTTP_AJAXTYPE'])){
+if(empty($_SERVER['HTTP_AJAXTYPE'])){
 ?>
+<?include "header.php"?>
+<?}?>
 
-<div>About content</div>
-
-<?}else{?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ideas</title>
-</head>
-<body>
-<h1>About</h1>
-<div class="navbar">
-<a href="index.html" data-pjax="#content" class="pjax">Home</a> | <a href="about.html" data-pjax="#content" class="pjax">About</a>
+<div id="mainbody">
+	<h1>关于我们</h1>
+	<p>这是关于我们的内容</p>
 </div>
-<div id="content">
-	<div>About content</div>
-</div>
-<script src="resource/js/jquery-1.9.1.min.js"></script>
-<script>
-window.addEventListener("popstate", function(e) {
-    console.log("AA");
-});
-$('a.pjax').click(function(e){
-	e.preventDefault();
-	history.pushState({href: this.href}, 'Another', this.href);
-	var contentId = this.getAttribute('data-pjax');
-	$.ajax({
-		headers : {
-			ajaxType: 'pjax'
-		},
-		url: this.href, 
-		success: function(r){
-			$(contentId).html(r);
-		}
-	});
-});
-
-</script>
-</body>
-</html>
-
+<?
+if(empty($_SERVER['HTTP_AJAXTYPE'])){
+?>
+<?include "footer.php"?>
 <?}?>
