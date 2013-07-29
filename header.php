@@ -8,7 +8,7 @@
 <body>
 <header>
 	<div class="top">
-		<div id="logo"><a href="#">idea+</a></div>
+		<div id="logo"><a href="/" class="pjax" data-pjax="#mainbody">idea+</a></div>
 	</div>
 	
 	<div id="navbar">

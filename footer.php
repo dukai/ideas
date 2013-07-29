@@ -1,6 +1,19 @@
+<div id="loading"></div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script>
-
+var getContent = function(url, contentId){
+	$('#loading').show();
+	$.ajax({
+		headers : {
+			ajaxType: 'pjax'
+		},
+		url: url, 
+		success: function(r){
+			$(contentId).html(r);
+			$('#loading').hide();
+		}
+	});
+};
 var historyStack = {};
 var historyCurrentPointer = 0;
 window.addEventListener("popstate", function(e) {
@@ -13,16 +26,7 @@ window.addEventListener("popstate", function(e) {
 	if(!state){
 		return;
 	}
-	
-	$.ajax({
-		headers : {
-			ajaxType: 'pjax'
-		},
-		url: state.href, 
-		success: function(r){
-			$(state['data-pjax']).html(r);
-		}
-	});
+	getContent(state.href, state['data-pjax']);
 	
 });
 $('a.pjax').click(function(e){
@@ -35,16 +39,10 @@ $('a.pjax').click(function(e){
 	};
 	history.pushState({href: this.href, 'data-pjax': contentId}, 'Another', this.href);
 	
-	$.ajax({
-		headers : {
-			ajaxType: 'pjax'
-		},
-		url: this.href, 
-		success: function(r){
-			$(contentId).html(r);
-		}
-	});
+	getContent(this.href, contentId);
 });
+
+
 
 </script>
 </body>
