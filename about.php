@@ -1,5 +1,4 @@
 <?
-sleep(2);
 if(empty($_SERVER['HTTP_AJAXTYPE'])){
 ?>
 <?include "header.php"?>

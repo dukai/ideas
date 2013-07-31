@@ -1,6 +1,8 @@
 <div id="loading"></div>
 <script src="resource/js/jquery-1.9.1.min.js"></script>
 <script>
+//TODO: 从空白页前进或后退时出现的bug待解决
+
 var getContent = function(url, contentId){
 	$('#loading').show();
 	$.ajax({

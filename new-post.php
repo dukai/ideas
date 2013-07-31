@@ -6,7 +6,7 @@ if(empty($_SERVER['HTTP_AJAXTYPE'])){
 <?}?>
 
 	<div class="form_box">
-		<form>
+		<form method="post" action="post.php">
 		<div class="fields_box">
 			<div class="cline">
 				<label>标题</label>
