@@ -12,7 +12,7 @@
 	</div>
 	
 	<div id="navbar">
-	<a href="index.php" data-pjax="#mainbody" class="pjax">Home</a> | <a href="about.php" data-pjax="#mainbody" class="pjax">About</a>
+	<a href="index.php" data-pjax="#mainbody" class="pjax">Home</a> | <a href="about.php" data-pjax="#mainbody" class="pjax">About</a> | <a href="new-post.php" data-pjax="#mainbody" class="pjax">+ New Post</a>
 	</div>
 </header>
 
