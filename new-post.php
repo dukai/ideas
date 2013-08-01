@@ -3,6 +3,7 @@ if(empty($_SERVER['HTTP_AJAXTYPE'])){
 ?>
 <?include "header.php"?>
 <div id="mainbody">
+	<div id="maincontent">
 <?}?>
 
 	<div class="form_box">
@@ -28,6 +29,8 @@ if(empty($_SERVER['HTTP_AJAXTYPE'])){
 <?
 if(empty($_SERVER['HTTP_AJAXTYPE'])){
 ?>
+	</div>
+	<?include "aside.php"?>
 </div>
 <?include "footer.php"?>
 <?}?>
