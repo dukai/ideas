@@ -43,11 +43,35 @@ header .top{
 }
 
 
-#mainbody{padding:10px;}
-#mainbody ul{}
-#mainbody ul li{
+#mainbody{padding:10px;position:relative;}
+#maincontent ul{}
+#maincontent ul li{
 	line-height:36px;
 	border-bottom:1px solid #ccc;
+}
+#maincontent ul li .title{}
+#maincontent ul li .summary{color:#999;font-size:12px;line-height:20px;}
+#maincontent ul li .cite{
+	color:#999;
+}
+
+#mainbody > aside{
+	position:absolute;
+	right:10px;
+	top:10px;
+	width:300px;
+}
+
+#mainbody>aside .btn{
+	text-align:center;
+	background:#6B7A85;
+	color:#fff;
+	display:block;
+	line-height:48px;
+}
+
+#maincontent{
+	margin-right:320px;
 }
 
 #loading{
